@@ -1,7 +1,7 @@
 # Android2017
 
 Το σχήμα της βάσης πρέπει να είναι το ακόλουθο:
-![alt text](https://eclass.hua.gr/modules/document/file.php/DIT117/Assignments/Screen%20Shot%202017-01-08%20at%2018.11.17.png)
+![alt text](https://raw.githubusercontent.com/jepeto/Android2017/master/Screen%20Shot%202017-01-08%20at%2018.11.17.png)
 
 (το dt είναι το timestamp)
 
