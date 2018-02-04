@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ergasia</string>
+    <string name="uid">User ID</string>
+    <string name="lon">Longitude</string>
+    <string name="lat">Latitude</string>
+    <string name="dt">Timestamp</string>
+    <string name="success">Data send successfully!</string>
+    <string name="failed">Data send failed!</string>
+</resources>
