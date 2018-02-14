@@ -44,7 +44,7 @@ public class MyContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        return null;
+        return dbHelper.query(projection, selection, selectionArgs, sortOrder);
     }
 
     @Nullable
@@ -74,46 +74,12 @@ public class MyContentProvider extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 101;
+        return dbHelper.deleteAll();
     }
 
-
-//    @Override
-//    public int delete(Uri uri, String selection, String[] selectionArgs) {
-//        int count = 0;
-//        switch (uriMatcher.match(uri)){
-//            case STUDENTS:
-//                count = db.delete(STUDENTS_TABLE_NAME, selection, selectionArgs);
-//                break;
-//
-//            case STUDENT_ID:
-//                String id = uri.getPathSegments().get(1);
-//                count = db.delete( STUDENTS_TABLE_NAME, _ID +  " = " + id +
-//                                (!TextUtils.isEmpty(selection) ? "
-//                        AND (" + selection + ')' : ""), selectionArgs);
-//                break;
-//            default:
-//                throw new IllegalArgumentException("Unknown URI " + uri);
-//        }
-//
-//        getContext().getContentResolver().notifyChange(uri, null);
-//        return count;
-//    }
-
     @Override
-    public int update(Uri uri, ContentValues values,
-                      String selection, String[] selectionArgs) {
-        int count = 0;
-        switch (uriMatcher.match(uri)) {
-            case 1:
-                count = dbHelper.updateUser(values, selection, selectionArgs);
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI " + uri );
-        }
-
-        getContext().getContentResolver().notifyChange(uri, null);
-        return count;
+    public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
+        return 0;
     }
 
 

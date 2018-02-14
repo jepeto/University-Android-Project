@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +106,17 @@ public class DBHandler extends SQLiteOpenHelper {
         db.delete(TABLE_USERS, KEY_USERID + " = ?",
                 new String[] { String.valueOf(user.getUid()) });
         db.close();
+    }
+    public int deleteAll() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int i = db.delete(TABLE_USERS, null, null);
+        db.close();
+        return i;
+    }
+
+    public Cursor query(@Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.query(TABLE_USERS,projection,selection,selectionArgs,null,null,sortOrder);
     }
 
     //Get List of Users that have the uid or dt or both that we are searching for
